@@ -1,0 +1,14 @@
+:root{
+    --main-font: Raleway;
+
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background: linear-gradient(320deg, rgb(41, 41, 255), rgb(201, 209, 255));
+}
+section{
+     height: 90vh;
+}
