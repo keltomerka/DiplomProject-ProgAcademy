@@ -61,6 +61,41 @@ footer{
     justify-content: center;
     column-gap: 500px;
 }
+.modalicon{
+    margin: 0 auto;
+    background-color: aliceblue;
+    border: 2px solid var(--main-color);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    width: 400px;
+    height: 550px;
+}
+.displayFlex{
+    display: flex;
+}
+.modalicon h4{
+    margin: 0 auto;
+    margin-top: 40px;
+    font-family: var(--main-font-family);
+    font-weight: 600;
+    color: rgb(0, 0, 151);
+}
+.modalicon input{
+    width: 300px;
+    align-self: center;
+    margin: 30px;
+    border: 1px solid rgb(13, 110, 253);
+    border-radius: 0 5px 5px 0px;
+    background-color: rgb(255, 255, 255);
+    height: 32px;
+}
+.modalbtns{
+    align-self: center;
+    display: flex;
+    column-gap: 200px;
+    margin-top: 40px;
+}
 
 @media screen and (max-width:800px) {
     .welcome{

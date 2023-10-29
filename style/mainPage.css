@@ -1,0 +1,12 @@
+:root{
+    --main-font-family: Raleway;
+    --main-color: rgb(2, 2, 34);
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background: linear-gradient(320deg, rgb(41, 41, 255), rgb(201, 209, 255));
+    height: 100vh;
+}
