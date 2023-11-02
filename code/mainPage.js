@@ -17,3 +17,33 @@ const closeButton = document.getElementById("closebtn");
 closeButton.addEventListener("click", () => {
     modul.style.display = "none";  
 });
+
+// добавляти нові історії
+const createStory = document.getElementById("createnewcard")
+createStory.addEventListener("click", () => {
+    createCard();
+})
+const storiesContainer = document.getElementById("stor-con")
+const createCard = function(){
+    const mainContainer = document.createElement("div")
+    mainContainer.classList.add("stories")
+    const storyhead = document.createElement("div")
+    storyhead.classList.add("storyhead")
+    const caption = document.createElement("h3")
+    caption.textContent = "Story Title";
+    const deleteBtn = document.createElement("button")
+    deleteBtn.classList.add("btn btn-outline-danger")
+    const deleteIcon = document.createElement("i")
+    deleteIcon.classList.add("fa-solid fa-trash-can")
+    const txtStory = document.createElement("p")
+    deleteBtn.appendChild(deleteIcon)
+    storyhead.appendChild(caption)
+    storyhead.appendChild(deleteBtn)
+    mainContainer.appendChild(storyhead)
+    mainContainer.appendChild(txtStory)
+    storiesContainer.appendChild(mainContainer)
+    deleteBtn.addEventListener("click", () => {
+        storiesContainer.removeChild(mainContainer);  
+    });
+}
+ 
