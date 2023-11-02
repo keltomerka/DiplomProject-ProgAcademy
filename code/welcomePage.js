@@ -17,7 +17,10 @@ btnCreate.addEventListener("click", () => {
     const email = inputs[1].value;
     const tel = inputs[2].value;
     const passwrd = inputs[3].value;
-    console.log(userName, email, tel, passwrd);
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("email", email);
+    localStorage.setItem("tel", tel);
+    localStorage.setItem("passwrd", passwrd);
 })
 
  

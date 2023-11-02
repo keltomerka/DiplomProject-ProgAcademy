@@ -30,3 +30,73 @@ nav div:hover{
     color: var(--pripary-color);
     transition: 0.3s all;
 }
+
+#user-modul{
+    background-color: aliceblue;
+    border: 2px solid var(--main-color);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+}
+#user-modul div{
+ margin: 0 auto;
+ font-size: 20px;
+ font-family: var(--main-font-family);
+ color: var(--main-color);
+ padding: 20px;
+}
+#user-modul button{
+    width: 80px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.container{
+    width: 70vw;
+    height: 100vh;
+    background-color: rgb(247, 248, 249);
+    border-radius: 20px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+}
+.infonav{
+    display: flex;
+    justify-content: space-between;
+}
+.infonav div{
+    margin: 20px;
+}
+.infonav button{
+    height: 40px;
+    margin: 20px;
+}
+#plus{
+    padding-left: 10px;
+}
+.stories-container{
+    border: 2px solid var(--main-color);
+    margin: 30px auto;
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+}
+.stories{
+    width: 90%;
+    height: 20%;
+    border: 2px solid var(--main-color);
+    margin: 30px auto 0 auto;
+    border-radius: 10px;
+}
+.storyhead{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.storyhead div{
+    margin: 20px;
+}
+.stories p{
+    margin: 10px 20px;
+}
