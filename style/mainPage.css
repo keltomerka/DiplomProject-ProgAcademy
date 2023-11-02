@@ -1,6 +1,7 @@
 :root{
     --main-font-family: Raleway;
     --main-color: rgb(2, 2, 34);
+    --pripary-color: rgb(13, 110, 253);
 }
 *{
     box-sizing: border-box;
@@ -9,4 +10,23 @@ body{
     margin: 0;
     background: linear-gradient(320deg, rgb(41, 41, 255), rgb(201, 209, 255));
     height: 100vh;
+}
+header{
+    height: 10vh;
+    font-family: Playpen Sans;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav{
+    display: flex;
+    padding: 30px 30px;
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--main-color);
+    column-gap: 150px;
+}
+nav div:hover{
+    color: var(--pripary-color);
+    transition: 0.3s all;
 }
