@@ -105,4 +105,21 @@ footer{
         font-size: 15px;
         width: 300px;
     }
+    .modalicon{
+        width: 300px;
+        height: 450px;
+    }
+    .modalicon h4{
+        font-size: 20px;
+    }
+    .modalicon input{
+        width: 200px;
+        align-self: center;
+        margin: 15px;
+    }
+    .modalbtns{
+        column-gap: 100px;
+        margin-top: 40px;
+    }
+    
 }

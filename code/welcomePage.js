@@ -11,16 +11,31 @@ btnClose.addEventListener("click", () => {
 })
 const btnCreate = document.getElementById("btnCreate")
 btnCreate.addEventListener("click", () => {
-    window.open("mainPage.html")
-    // window.close("welcomePage.html")
+    const checkPhone = /^0\d{9}/;
+    const checkEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const checkName = /^[a-zA-Zа-яА-Я\s]+$/;
+
     const userName = inputs[0].value;
     const email = inputs[1].value;
     const tel = inputs[2].value;
     const passwrd = inputs[3].value;
-    localStorage.setItem("userName", userName);
-    localStorage.setItem("email", email);
-    localStorage.setItem("tel", tel);
-    localStorage.setItem("passwrd", passwrd);
+
+    if (!checkName.test(userName)) {
+        alert("Name entered incorrectly!. Please use only letters and spaces");
+    } else if (!checkEmail.test(email)) {
+        alert("Email entered incorrectly! Please checked format.");
+    } else if (!checkPhone.test(tel)) {
+        alert("Phone number entered incorrectly! Please enter as 0*********.");
+    } else {
+        window.open("mainPage.html");
+        window.close("welcomePage.html");
+        localStorage.setItem("userName", userName);
+        localStorage.setItem("email", email);
+        localStorage.setItem("tel", tel);
+        localStorage.setItem("passwrd", passwrd);
+    }
+
+   
+    
 })
 
- 

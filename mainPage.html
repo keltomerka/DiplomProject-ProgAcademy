@@ -19,9 +19,12 @@
           <div id="headLogo">MyDiary</div>
         </div>
         <nav>
-            <div>Info</div>
-            <div><i id="iconhead" class="fa-regular fa-user fa-lg"></i></div>
-            <div>Contacts</div>
+              <div class="search">
+                <input type="text" id="searchInput" placeholder="Search history">
+                <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div id="iconhead"><i  class="fa-regular fa-user fa-lg"></i></div>
+            <div id="currenttime"></div>
         </nav>
       </header>
       <section>
@@ -35,7 +38,7 @@
 
         <div class="container">
           <div class="infonav">
-            <div>smsc</div>
+            <div class="mperdiar">My personal diary</div>
             <button id="createnewcard" class="btn btn-outline-primary">Add new story<i id="plus" class="fa-solid fa-plus"></i></button>
           </div>
           <div id="stor-con" class="stories-container">
@@ -52,19 +55,6 @@
                 <button class="btn btn-outline-primary" id="storyclose">Close</button>
               </div>
             </div>
-            <!-- Модульне вікно при редагувні карточки -->
-            <!-- <div id="edit-modul" class="str-mdl-class">
-              <div class="story-modul-head">
-                <div><span>Caption: </span> <input maxlength="40" id="edit-mainname" class="editcaption" type="text"></div>
-                <div><span>Date:  </span><input class="editdate" id="edit-dateinp" type="date"></div>
-              </div>
-              <div class="modul-txt"><p>Your story:</p> <textarea class="edittxt" id="edit-txtstory" cols="30" rows="10"></textarea>
-              </div>
-              <div class="story-modul-btns">
-                <button class="btn btn-outline-primary" id="storysave">Save</button>
-                <button class="btn btn-outline-primary" id="editclose">Close</button>
-              </div>
-            </div> -->
               <!-- Модулюне вікно привідкриванні файла повністю -->
             <div class="str-mdl-class" id="text-modul-all">
               <div class="story-modul-head">
@@ -78,16 +68,16 @@
               </div>
             </div>
             <!-- Початкова карточка -->
-            <div class="firststory stories">
+            <div  class="firststory stories">
               <div  class="storyhead">
-                <h3 id="caption">It can be your the first story</h3>
+                <h3 id="caption" class="firstcaption">It could be your the first story</h3>
                 <div class="strhd-btns">
-                  <button class="btn btn-outline-primary"><i class="fa-regular fa-folder-open"></i></button>
-                  <button class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i></button>
+                  <button id="firststory-open" class="btn btn-outline-primary"><i class="fa-regular fa-folder-open"></i></button>
+                  <button id="firststory-delete" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i></button>
                 </div>
               </div>
-              <p class="txtabout">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati at soluta voluptas dignissimos. Temporibus laborum laudantium libero necessitatibus unde omnis, eaque maxime, excepturi rerum nam ex qui incidunt voluptate dolore. lor</p>
-              <div class="data"> 20/10/2000</div>
+              <p class="txtabout" id="firststory-txt">Welcome to the beta version of the website for keeping a personal diary! In this initial version, you can add new stories, delete them, and view them in a convenient format. You can also view your personal information by clicking on the character icon at the top of the site. This is an optional note, you can delete it</p>
+              <div class="data" id="firstdate"> 20/10/2000</div>
             </div>
           </div>
         </div>

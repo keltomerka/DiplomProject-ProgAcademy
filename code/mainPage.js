@@ -88,6 +88,13 @@ const createCard = function(){
     mainContainer.appendChild(txtStory)
     mainContainer.appendChild(data)
     storiesContainer.appendChild(mainContainer)
+
+    const uniqueId = generateUniqueId(); 
+    mainContainer.id = `story-${uniqueId}`;
+    openBtn.dataset.storyId = uniqueId;
+    function generateUniqueId() {
+        return Math.random().toString(36).substring(2) + new Date().getTime().toString(36);
+    }
     //видалити історію
     deleteBtn.addEventListener("click", () => {
         const sure = confirm("Are you sure? It will be delete forever")
@@ -98,43 +105,21 @@ const createCard = function(){
     const closeStory = document.getElementById("close")
     closeStory.addEventListener("click", () =>{
         moduleIcon.style.display = "none"
-        // caption.innerHTML = finishName.textContent.split(": ")[1];
-        // data.innerHTML = finishDate.textContent.split(": ")[1];
-        // textArea.innerHTML = maintxt.value;
     })
     //відкрити історію
     const finishName = document.getElementById("finishname") 
     const finishDate = document.getElementById("finishdate")
     openBtn.addEventListener("click", () => {
-        moduleIcon.style.display = "flex"
-        finishDate.textContent = `Date: ${dateInp.value}`
-        finishName.textContent = `Caption: ${mainName.value}`
-        maintxt.innerHTML = textArea.value
+        moduleIcon.style.display = "flex";
+        const storyId = openBtn.dataset.storyId;
+        const storyToOpen = document.getElementById(`story-${storyId}`);
+        const storyCaption = storyToOpen.querySelector("h3");
+        const storyDate = storyToOpen.querySelector(".data");
+        const storyContent = storyToOpen.querySelector("p");
+        finishName.textContent = `Caption: ${storyCaption.textContent}`;
+        finishDate.textContent = `Date: ${storyDate.textContent}`;
+        maintxt.textContent = storyContent.textContent;
     });
-    //відкрити редагування історії
-        // const editCaption = document.querySelector(".editcaption")
-        // const editDate = document.querySelector(".editdate")
-        // const editTxt = document.querySelector(".edittxt")
-        // const edit = document.getElementById("edit")
-        // edit.addEventListener("click", () =>{
-        //     moduleIcon.style.display = "none"
-        //     edidModul.style.display = "flex"
-        // });
-        
-        //     const storySave = document.getElementById("storysave")
-        //     storySave.addEventListener("click", () =>{
-        //         finishName.textContent = `Caption: ${editCaption.value}`
-        //         finishDate.textContent = `Date: ${editDate.value}`
-        //         maintxt.innerHTML = editTxt.value
-        //         edidModul.style.display = "none"
-        //         moduleIcon.style.display = "flex"
-        //     })
-        //     const editClose = document.getElementById("editclose")
-        //     editClose.addEventListener("click", () =>{
-        //         const suhe = confirm("Are you sure? Unsaved data will be deleted!") 
-        //         if(suhe){edidModul.style.display = "none"; moduleIcon.style.display = "flex"}
-        //     })
-    
     const firstStory = storiesContainer.querySelector(".stories");
     storiesContainer.insertBefore(mainContainer, firstStory);
 }
@@ -143,6 +128,80 @@ storyAdd.addEventListener("click", () =>{
     createCard()
     storyModul.style.display = "none"
 })
-// 
+// Видалення та відкриття початкової історії
+const firstStoryDelete = document.getElementById("firststory-delete")
+const firstStoryOpen = document.getElementById("firststory-open")
+firstStoryDelete.addEventListener("click", () =>{
+   const firstStoryStart  = document.querySelector(".firststory")
+   const sure = confirm("Are you sure? It will be delete forever")
+        if(sure){firstStoryStart.style.display = "none"}
+   
+})
+firstStoryOpen.addEventListener("click", () =>{
+    const finishName = document.getElementById("finishname") 
+    const finishDate = document.getElementById("finishdate")
+    const firstCaption = document.querySelector(".firstcaption")
+    const firstDate = document.getElementById("firstdate")
+    const firstStoryTxt = document.getElementById("firststory-txt")
+    moduleIcon.style.display = "flex"
+    finishName.textContent = `Caption: ${firstCaption.textContent}`
+    finishDate.textContent = `Caption: ${firstDate.textContent}`
+    maintxt.textContent = firstStoryTxt.textContent
+    const closeStory = document.getElementById("close")
+    closeStory.addEventListener("click", () =>{
+        moduleIcon.style.display = "none"
+    })
+})
+// додатки до хедера - дата
+const currentTime = document.getElementById("currenttime")
+function updateCurrentTime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const day = now.getDate();
+    const month = now.getMonth() + 1; 
+
+    const formattedDateTime = `${day}/${month}/${year} ${hours}:${minutes}`;
+    currentTime.textContent = formattedDateTime;
+}
+setInterval(updateCurrentTime, 60000);
+updateCurrentTime();
+// пошук
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+searchInput.addEventListener("input", searchHistory);
+function searchHistory() {
+    const searchQuery = searchInput.value.toLowerCase();
+    const stories = document.querySelectorAll(".stories");
+    
+    if (searchQuery.trim() === "") {
+        stories.forEach(story => {
+            story.style.display = "block";
+        });
+    } else {
+        stories.forEach(story => {
+            const caption = story.querySelector(".storyhead h3").textContent.toLowerCase();
+            if (caption.includes(searchQuery)) {
+                story.style.display = "block";
+            } else {
+                story.style.display = "none";
+            }
+        });
+    }
+}
+searchButton.addEventListener("click", () => {
+    searchHistory();
+});
+searchInput.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        searchHistory();
+    }
+});
+
+
+
+
+
 
  
