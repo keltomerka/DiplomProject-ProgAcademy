@@ -5,6 +5,10 @@ const passwrd = localStorage.getItem("passwrd");
 const userInfo = document.getElementById("iconhead");
 const modul = document.getElementById("user-modul")
 const createStory = document.getElementById("createnewcard")
+const edidModul = document.getElementById("edit-modul"); 
+const moduleIcon = document.getElementById("text-modul-all")
+const maintxt = document.getElementById("maintxt") 
+// відкриття інфо про користувача
 userInfo.addEventListener("click", () =>{
     modul.style.display = "flex"
     const name = document.getElementById("name")
@@ -90,49 +94,47 @@ const createCard = function(){
         if(sure){storiesContainer.removeChild(mainContainer)}
           
     });
+    // закрити історію
+    const closeStory = document.getElementById("close")
+    closeStory.addEventListener("click", () =>{
+        moduleIcon.style.display = "none"
+        // caption.innerHTML = finishName.textContent.split(": ")[1];
+        // data.innerHTML = finishDate.textContent.split(": ")[1];
+        // textArea.innerHTML = maintxt.value;
+    })
     //відкрити історію
+    const finishName = document.getElementById("finishname") 
+    const finishDate = document.getElementById("finishdate")
     openBtn.addEventListener("click", () => {
-        const moduleIcon = document.getElementById("text-modul-all")
         moduleIcon.style.display = "flex"
-        const finishName = document.getElementById("finishname") 
-        const finishDate = document.getElementById("finishdate") 
-        const maintxt = document.getElementById("maintxt") 
         finishDate.textContent = `Date: ${dateInp.value}`
         finishName.textContent = `Caption: ${mainName.value}`
         maintxt.innerHTML = textArea.value
-        // закрити історію
-        const closeStory = document.getElementById("close")
-        closeStory.addEventListener("click", () =>{
-            moduleIcon.style.display = "none"
-        })
-        //відкрити редагування історії
-        const edit = document.getElementById("edit")
-        edit.addEventListener("click", () =>{
-            moduleIcon.style.display = "none"
-            storyModul.style.display = "flex"
-            storyAdd.style.display = "none"
-            const editBtn = document.createElement("button")
-            editBtn.classList.add("btn")
-            editBtn.classList.add("btn-outline-primary")
-            editBtn.textContent = "Save"
-            const storyModulBtns = document.querySelector(".story-modul-btns")
-            storyModulBtns.appendChild(editBtn)
-            editBtn.addEventListener("click", () =>{
-                const newMainName = document.getElementById("mainname").value;
-                const newDateInp = document.getElementById("dateinp").value;
-                const newTextArea = document.getElementById("txtstory").value;
-                const finishName = document.getElementById("finishname") 
-                const finishDate = document.getElementById("finishdate") 
-                const maintxt = document.getElementById("maintxt") 
-                finishName.textContent = `Caption: ${newMainName}`
-                finishDate.textContent = `Date: ${newDateInp}`
-                maintxt.innerHTML = newTextArea
-                storyModul.style.display = "none"
-                moduleIcon.style.display = "flex"
-            })
-        })
-
     });
+    //відкрити редагування історії
+        // const editCaption = document.querySelector(".editcaption")
+        // const editDate = document.querySelector(".editdate")
+        // const editTxt = document.querySelector(".edittxt")
+        // const edit = document.getElementById("edit")
+        // edit.addEventListener("click", () =>{
+        //     moduleIcon.style.display = "none"
+        //     edidModul.style.display = "flex"
+        // });
+        
+        //     const storySave = document.getElementById("storysave")
+        //     storySave.addEventListener("click", () =>{
+        //         finishName.textContent = `Caption: ${editCaption.value}`
+        //         finishDate.textContent = `Date: ${editDate.value}`
+        //         maintxt.innerHTML = editTxt.value
+        //         edidModul.style.display = "none"
+        //         moduleIcon.style.display = "flex"
+        //     })
+        //     const editClose = document.getElementById("editclose")
+        //     editClose.addEventListener("click", () =>{
+        //         const suhe = confirm("Are you sure? Unsaved data will be deleted!") 
+        //         if(suhe){edidModul.style.display = "none"; moduleIcon.style.display = "flex"}
+        //     })
+    
     const firstStory = storiesContainer.querySelector(".stories");
     storiesContainer.insertBefore(mainContainer, firstStory);
 }
@@ -141,6 +143,6 @@ storyAdd.addEventListener("click", () =>{
     createCard()
     storyModul.style.display = "none"
 })
-// відкриття карточки повністю
+// 
 
  

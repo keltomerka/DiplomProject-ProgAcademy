@@ -25,12 +25,14 @@
         </nav>
       </header>
       <section>
+        <!-- Модульне вікно для інфо користувача -->
         <div id="user-modul" class="position-absolute top-40 start-40">
           <div id="name"></div>
           <div id="userEmail"></div>
           <div id="telnumber"></div>
           <button id="closebtn" class="btn btn-outline-primary">Close</button>
         </div>
+
         <div class="container">
           <div class="infonav">
             <div>smsc</div>
@@ -51,18 +53,18 @@
               </div>
             </div>
             <!-- Модульне вікно при редагувні карточки -->
-            <div id="story-modul" class="str-mdl-class">
+            <!-- <div id="edit-modul" class="str-mdl-class">
               <div class="story-modul-head">
-                <div><span>Caption: </span> <input maxlength="40" id="mainname" type="text"></div>
-                <div><span>Date:  </span><input id="dateinp" type="date"></div>
+                <div><span>Caption: </span> <input maxlength="40" id="edit-mainname" class="editcaption" type="text"></div>
+                <div><span>Date:  </span><input class="editdate" id="edit-dateinp" type="date"></div>
               </div>
-              <div class="modul-txt"><p>Your story:</p> <textarea name="" id="txtstory" cols="30" rows="10"></textarea>
+              <div class="modul-txt"><p>Your story:</p> <textarea class="edittxt" id="edit-txtstory" cols="30" rows="10"></textarea>
               </div>
               <div class="story-modul-btns">
-                <button class="btn btn-outline-primary" id="storyadd">Save</button>
-                <button class="btn btn-outline-primary" id="storyclose">Close</button>
+                <button class="btn btn-outline-primary" id="storysave">Save</button>
+                <button class="btn btn-outline-primary" id="editclose">Close</button>
               </div>
-            </div>
+            </div> -->
               <!-- Модулюне вікно привідкриванні файла повністю -->
             <div class="str-mdl-class" id="text-modul-all">
               <div class="story-modul-head">
@@ -72,7 +74,6 @@
               <div class="modul-txt" id="opentxt"><p>Your story:</p> <p id="maintxt"></p>
               </div>
               <div class="story-modul-btns">
-                <button class="btn btn-outline-primary" id="edit">Edit</button>
                 <button class="btn btn-outline-primary" id="close">Close</button>
               </div>
             </div>
