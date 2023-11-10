@@ -198,22 +198,31 @@ textarea{
 #searchButton {
     padding: 5px 10px;
     font-size: 16px;
-    background-color: #007bff; /* Колір фону */
-    color: #fff; /* Колір тексту */
+    background-color: #007bff;
+    color: #fff;  
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+#currenttime{
+    cursor: text;
+}
 @media screen and (max-width:1400px){
     .txtabout{
-        max-width: 700px;
+        max-width: 598px;
         word-break: normal;
+    }
+    .firststory-txt{
+        max-height: 23px;
     }
 }
 @media screen and (max-width:950px) {
     header{
         flex-direction: column;
         height: 150px;
+    }
+    #caption{
+        font-size: 20px;
     }
     .head{
         padding-bottom: 0;
@@ -248,12 +257,18 @@ textarea{
     }
     
 }
-@media screen and (max-width:600px){
+@media screen and (max-width:730px){
     .str-mdl-class{
         width: 400px;
     }
     .story-modul-btns, .story-modul-head {
         width: 350px;
+    }
+    .strhd-btns{
+        height: 35px;
+    }
+    .txtabout{
+        display: none;
     }
     #txtstory, #edit-txtstory {
         width: 200px;
@@ -272,7 +287,9 @@ textarea{
     .txtabout{
         max-width: 90px;
     }
-
+    .data{
+        display: none;
+    }
 }
 @media screen and (max-width:450px){
     .txtabout{
